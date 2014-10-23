@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Created by shitawu on 09/10/2014.
  */
 public class Voie {
+
     private ArrayList<Position> ps;
 
     public Voie(int nb) {

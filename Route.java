@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Created by shitawu on 09/10/2014.
  */
 public class Route {
+
     private Voie v1, v2;
     private Face f1, f2;
 
@@ -23,4 +24,5 @@ public class Route {
     public Face getF2() {
         return f2;
     }
+
 }

@@ -6,11 +6,11 @@ import java.util.ArrayList;
  * Created by shitawu on 09/10/2014.
  */
 public class Position {
-    private boolean libre = true;
+    private boolean isLibre = true;
     private ArrayList<Position> suivante;
 
     public Position() {
-        libre = true;
+        isLibre = true;
         suivante = new ArrayList<Position>();
     }
 
@@ -22,8 +22,12 @@ public class Position {
         return suivante.size();
     }
 
-    public boolean isLibre() {
-        return libre;
+    public boolean getisLibre() {
+        return isLibre;
+    }
+
+    public void setisLibre(boolean b) {
+        isLibre = b;
     }
 
     public ArrayList<Position> getSuivante() {
