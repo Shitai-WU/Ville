@@ -7,14 +7,14 @@ public class Face {
 
     private Position pEntree, pSortie;
 
-    public Face(Position pEntree1, Position pSortie1) {
+    public Face(Position pEntree, Position pSortie) {
         this.pEntree = pEntree;
         this.pSortie = pSortie;
     }
 
     public void connect(Face f) {
-        f.getSortie().addPosition(pEntree);
-        pSortie.addPosition(f.getEntree());
+        f.getSortie().addPositionSuivante(pEntree);
+        pSortie.addPositionSuivante(f.getEntree());
     }
 
     public Position getEntree() { return pEntree; }

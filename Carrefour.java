@@ -15,11 +15,11 @@ public class Carrefour {
         fs = new ArrayList<Face>();
 
         for(int i=0;i<nb;i++) {
-            ps.set(i,new Position());
+            ps.add(new Position());
         }
 
         for(int i=0;i<nb;i++) {
-            ps.get(i).addPosition(ps.get((i+1)%nb));
+            ps.get(i).addPositionSuivante(ps.get((i+1)%nb));
         }
 
         /*

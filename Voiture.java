@@ -4,19 +4,25 @@ package ville;
  * Created by shitawu on 09/10/2014.
  */
 public class Voiture {
+    private String name;
+    private Position p;
 
-    Position p;
-
-    public Voiture(Position p) {
+    public Voiture(String n, Position p) {
+        this.name = n;
         this.p = p;
-        p.setisLibre(false);
+        p.setIsLibre(false);
     }
 
-    public void avance() {
-        if(p.getSuivante().size()==1) {
-            p.setisLibre(true);
-            p = p.getSuivante().get(0);
-            p.setisLibre(false);
+    public void avance(){
+        if( p.getSuivantes().size()>0) {
+            p.getSuivantes().get(0).prendre();
+            p.liberer();
+            p = p.getSuivantes().get(0);
+            System.out.println(name + " roule sur la position : " + p.getX() + ", " + p.getY());
         }
+    }
+
+    public Position getPosition() {
+        return p;
     }
 }

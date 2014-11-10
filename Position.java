@@ -6,31 +6,66 @@ import java.util.ArrayList;
  * Created by shitawu on 09/10/2014.
  */
 public class Position {
+    private int x,y;
     private boolean isLibre = true;
-    private ArrayList<Position> suivante;
+    private ArrayList<Position> suivantes;
 
     public Position() {
+        suivantes = new ArrayList<Position>();
+    }
+
+    public Position(int x, int y) {
+        this.x = x;
+        this.y = y;
+        suivantes = new ArrayList<Position>();
+    }
+
+    public synchronized void prendre(){
+        while(!isLibre) {
+            try{
+                wait();
+            }catch (Exception e) {e.printStackTrace();}
+        }
+        isLibre = false;
+        notifyAll();
+    }
+
+    public synchronized void liberer(){
+        while(isLibre) {
+            try{
+                wait();
+            }catch (Exception e) {e.printStackTrace();}
+        }
         isLibre = true;
-        suivante = new ArrayList<Position>();
+        notifyAll();
     }
 
-    public void addPosition(Position p) {
-        suivante.add(p);
-    }
-
-    public int nbPosition() {
-        return suivante.size();
+    public void addPositionSuivante(Position p) {
+        suivantes.add(p);
     }
 
     public boolean getisLibre() {
         return isLibre;
     }
 
-    public void setisLibre(boolean b) {
+    public void setIsLibre(boolean b) {
         isLibre = b;
     }
 
-    public ArrayList<Position> getSuivante() {
-        return suivante;
+    public ArrayList<Position> getSuivantes() {
+        return suivantes;
+    }
+
+    public Position getPositionSuivanteRandom() {
+
+        return null;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }
