@@ -20,6 +20,40 @@ public class Position {
         suivantes = new ArrayList<Position>();
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setPosition(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public boolean getIsLibre() {
+        return isLibre;
+    }
+
+    public void setIsLibre(boolean b) {
+        isLibre = b;
+    }
+
+    public void addPositionSuivante(Position p) {
+        suivantes.add(p);
+    }
+
+    public Position getPositionSuivanteRandom() {
+
+        return null;
+    }
+
+    public ArrayList<Position> getSuivantes() {
+        return suivantes;
+    }
+
     public synchronized void prendre(){
         while(!isLibre) {
             try{
@@ -40,32 +74,5 @@ public class Position {
         notifyAll();
     }
 
-    public void addPositionSuivante(Position p) {
-        suivantes.add(p);
-    }
 
-    public boolean getisLibre() {
-        return isLibre;
-    }
-
-    public void setIsLibre(boolean b) {
-        isLibre = b;
-    }
-
-    public ArrayList<Position> getSuivantes() {
-        return suivantes;
-    }
-
-    public Position getPositionSuivanteRandom() {
-
-        return null;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
 }

@@ -9,10 +9,6 @@ public class Voie {
 
     private ArrayList<Position> ps;
 
-    public Voie() {
-        ps = new ArrayList<Position>();
-    }
-
     public Voie(int nb) {
         ps = new ArrayList<Position>(nb);
 
@@ -25,11 +21,11 @@ public class Voie {
         }
     }
 
-    public Position getDebut() {
+    public Position getEntree() {
         return ps.get(0);
     }
 
-    public Position getFin() {
+    public Position getSortie() {
         return ps.get(ps.size()-1);
     }
 
@@ -37,10 +33,4 @@ public class Voie {
         return ps;
     }
 
-    public void addPosition(Position p) {
-        ps.add(p);
-        if(ps.size()>1) {
-            ps.get(ps.size()-2).addPositionSuivante(p);
-        }
-    }
 }

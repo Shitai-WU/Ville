@@ -40,4 +40,5 @@ public class Carrefour {
     public ArrayList<Face> getFs() {
         return fs;
     }
+
 }
