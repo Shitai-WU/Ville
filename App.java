@@ -31,7 +31,7 @@ public class App {
         r2.getF1().connect(c1.getFace(1));
 
         Voiture voiture1 = new Voiture("Clio1", r1.getV2().getPs().get(0));
-        Voiture voiture2 = new Voiture("Clio2", r1.getV2().getPs().get(1));
+        Voiture voiture2 = new Voiture("Clio2", r2.getV2().getPs().get(0));
 
         ThreadVoiture t1 = new ThreadVoiture(voiture1);
         t1.start();

@@ -40,9 +40,11 @@ public class Voiture {
     public void avance() throws Exception{
         if( p.getSuivantes().size()>0)
         {
-            p.getSuivantes().get(0).prendre();
+            Position pSuivante = new Position();
+            pSuivante = p.getPositionSuivanteRandom();
+            pSuivante.prendre();
             p.liberer();
-            p = p.getSuivantes().get(0);
+            p = pSuivante;
             System.out.println(name + " prends la position : " + p.getX() + ", " + p.getY());
         }
     }
