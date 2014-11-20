@@ -1,6 +1,7 @@
 package ville;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by shitawu on 09/10/2014.
@@ -46,8 +47,8 @@ public class Position {
     }
 
     public Position getPositionSuivanteRandom() {
-
-        return null;
+        Random random = new Random();
+        return suivantes.get(random.nextInt(suivantes.size()));
     }
 
     public ArrayList<Position> getSuivantes() {

@@ -35,6 +35,7 @@ public class App {
 
         ThreadVoiture t1 = new ThreadVoiture(voiture1);
         t1.start();
+        Thread.sleep(1000);
 
         ThreadVoiture t2 = new ThreadVoiture(voiture2);
         t2.start();

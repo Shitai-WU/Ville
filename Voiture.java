@@ -37,12 +37,13 @@ public class Voiture {
         this.p = p;
     }
 
-    public void avance(){
-        if( p.getSuivantes().size()>0) {
+    public void avance() throws Exception{
+        if( p.getSuivantes().size()>0)
+        {
             p.getSuivantes().get(0).prendre();
             p.liberer();
             p = p.getSuivantes().get(0);
-            System.out.println(name + " avance à la position : " + p.getX() + ", " + p.getY());
+            System.out.println(name + " prends la position : " + p.getX() + ", " + p.getY());
         }
     }
 }
