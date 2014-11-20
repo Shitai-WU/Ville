@@ -62,18 +62,10 @@ public class Position {
             }catch (Exception e) {e.printStackTrace();}
         }
         isLibre = false;
-        notifyAll();
     }
 
     public synchronized void liberer(){
-        while(isLibre) {
-            try{
-                wait();
-            }catch (Exception e) {e.printStackTrace();}
-        }
         isLibre = true;
         notifyAll();
     }
-
-
 }

@@ -37,10 +37,10 @@ public class Voiture {
         this.p = p;
     }
 
-    public void avance() throws Exception{
+    public void avance() {
         if( p.getSuivantes().size()>0)
         {
-            Position pSuivante = new Position();
+            Position pSuivante;
             pSuivante = p.getPositionSuivanteRandom();
             pSuivante.prendre();
             p.liberer();
