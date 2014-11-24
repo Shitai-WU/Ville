@@ -9,6 +9,7 @@ import java.util.Random;
 public class Position {
     private int x,y;
     private boolean isLibre = true;
+    private boolean isFeuRouge = false;
     private ArrayList<Position> suivantes;
 
     public Position() {
@@ -56,7 +57,7 @@ public class Position {
     }
 
     public synchronized void prendre(){
-        while(!isLibre) {
+        while(!isLibre || isFeuRouge) {
             try{
                 wait();
             }catch (Exception e) {e.printStackTrace();}
@@ -67,5 +68,18 @@ public class Position {
     public synchronized void liberer(){
         isLibre = true;
         notifyAll();
+    }
+
+    public synchronized void changeFeu(){
+        isFeuRouge = !isFeuRouge;
+        notifyAll();
+    }
+
+    public boolean isFeuRouge() {
+        return isFeuRouge;
+    }
+
+    public void setFeuRouge(boolean isFeuRouge) {
+        this.isFeuRouge = isFeuRouge;
     }
 }

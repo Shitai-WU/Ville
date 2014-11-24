@@ -1,5 +1,7 @@
 package ville;
 
+import java.util.ArrayList;
+
 /**
  * Created by shitawu on 09/10/2014.
  */
@@ -24,13 +26,12 @@ public class App {
         c1.getPs().get(2).setPosition(1, 6);
         c1.getPs().get(3).setPosition(0, 6);
 
-        c1.getFs().add(new Face(c1.getPs().get(1), c1.getPs().get(0)));
-        c1.getFs().add(new Face(c1.getPs().get(2), c1.getPs().get(1)));
-
         r1.getF1().connect(c1.getFace(0));
         r2.getF1().connect(c1.getFace(1));
 
-        Voiture voiture1 = new Voiture("Clio1", r1.getV2().getPs().get(0));
+        Voiture voiture1 = new Voiture("Clio1", r1.getV2().getPs().get(3));
+        r1.getV2().getPs().get(4).setFeuRouge(true);
+
         Voiture voiture2 = new Voiture("Clio2", r2.getV2().getPs().get(0));
 
         ThreadVoiture t1 = new ThreadVoiture(voiture1);
@@ -39,7 +40,14 @@ public class App {
         ThreadVoiture t2 = new ThreadVoiture(voiture2);
         t2.start();
 
+        ArrayList<Face> fs = new ArrayList<Face>();
+        fs.add(r1.getF1());
+        fs.add(r2.getF1());
+        ThreadGestionnaire t3 = new ThreadGestionnaire(fs);
+        t3.start();
+
         t1.join();
         t2.join();
+        t3.join();
     }
 }

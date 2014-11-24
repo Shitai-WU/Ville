@@ -22,11 +22,9 @@ public class Carrefour {
             ps.get(i).addPositionSuivante(ps.get((i+1)%nb));
         }
 
-        /*
         for(int i=0;i<nb;i++) {
             fs.add(new Face(ps.get(i), ps.get((i+1)%nb)));
         }
-        */
     }
 
     public Face getFace(int n) {
@@ -40,5 +38,4 @@ public class Carrefour {
     public ArrayList<Face> getFs() {
         return fs;
     }
-
 }
